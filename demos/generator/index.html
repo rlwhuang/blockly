@@ -5,7 +5,9 @@
   <title>Blockly Demo: Generating JavaScript</title>
   <script src="../../blockly_compressed.js"></script>
   <script src="../../blocks_compressed.js"></script>
-  <script src="../../javascript_compressed.js"></script>
+    <script src="../../blocks/setup.js"></script>
+  <!--script src="../../javascript_compressed.js"></script-->
+    <script src="../../generators/p5dotjs.js"></script>
   <script src="../../msg/js/en.js"></script>
   <style>
     body {
@@ -34,12 +36,12 @@
   <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
 
   <xml id="toolbox" style="display: none">
-    <category name="Logic">
+    <category name="Setup">
       <block type="controls_if"></block>
       <block type="logic_compare"></block>
       <block type="logic_operation"></block>
       <block type="logic_negate"></block>
-      <block type="logic_boolean"></block>
+      <block type="setup_createcanvas"></block>
     </category>
     <category name="Loops">
       <block type="controls_repeat_ext">
@@ -120,18 +122,18 @@
 
     function showCode() {
       // Generate JavaScript code and display it.
-      Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-      var code = Blockly.JavaScript.workspaceToCode();
+      Blockly.p5dotjs.INFINITE_LOOP_TRAP = null;
+      var code = Blockly.p5dotjs.workspaceToCode();
       alert(code);
     }
 
     function runCode() {
       // Generate JavaScript code and run it.
       window.LoopTrap = 1000;
-      Blockly.JavaScript.INFINITE_LOOP_TRAP =
+      Blockly.p5dotjs.INFINITE_LOOP_TRAP =
           'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
-      var code = Blockly.JavaScript.workspaceToCode();
-      Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+      var code = Blockly.p5dotjs.workspaceToCode();
+      Blockly.p5dotjs.INFINITE_LOOP_TRAP = null;
       try {
         eval(code);
       } catch (e) {
