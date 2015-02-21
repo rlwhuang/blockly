@@ -31,10 +31,8 @@ goog.require('Blockly.p5dotjs');
 
 
 Blockly.p5dotjs['setup_createcanvas'] = function(block) {
-  var value_width = Blockly.JavaScript.valueToCode(block, 'WIDTH', Blockly.JavaScript.ORDER_ATOMIC);
-  var value_height = Blockly.JavaScript.valueToCode(block, 'HEIGHT', Blockly.JavaScript.ORDER_ATOMIC);
-  var text_height = block.getFieldValue('height');
-  var text_width = block.getFieldValue('width');
+  var value_width = Blockly.p5dotjs.valueToCode(block, 'width', Blockly.p5dotjs.ORDER_ATOMIC);
+  var value_height = Blockly.p5dotjs.valueToCode(block, 'height', Blockly.p5dotjs.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
   var code = 'createCanvas(' + value_width + ',' + value_height + ')';
   return code;

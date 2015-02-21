@@ -256,12 +256,4 @@ Blockly.p5dotjs['text_prompt_ext'] = function(block) {
   return [code, Blockly.p5dotjs.ORDER_FUNCTION_CALL];
 };
 
-Blockly.p5dotjs['setup_createcanvas'] = function(block) {
-  var value_width = Blockly.JavaScript.valueToCode(block, 'WIDTH', Blockly.JavaScript.ORDER_ATOMIC);
-  var value_height = Blockly.JavaScript.valueToCode(block, 'HEIGHT', Blockly.JavaScript.ORDER_ATOMIC);
-  var text_height = block.getFieldValue('height');
-  var text_width = block.getFieldValue('width');
-  // TODO: Assemble JavaScript into code variable.
-  var code = 'createCanvas(' + value_width + ',' + value_height + ')';
-  return code;
-};
+

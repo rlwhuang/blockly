@@ -34,18 +34,18 @@ Blockly.Blocks.setup.HUE = 260;
 Blockly.Blocks['setup_createcanvas'] = {
   init: function() {
     this.setHelpUrl('http://www.example.com/');
-    this.setColour(260);
+    this.setColour(65);
     this.appendDummyInput()
         .appendField("createCanvas");
-    this.appendValueInput("WIDTH")
+    this.appendValueInput("width")
         .setCheck("Number")
-        .appendField(new Blockly.FieldTextInput("width"), "width");
-    this.appendValueInput("HEIGHT")
+        .appendField("width");
+    this.appendValueInput("height")
         .setCheck("Number")
-        .appendField(new Blockly.FieldTextInput("height"), "height");
+        .appendField("height");
     this.setInputsInline(true);
-    this.setPreviousStatement(true, "null");
-    this.setNextStatement(true, "null");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
     this.setTooltip('');
   }
 };
